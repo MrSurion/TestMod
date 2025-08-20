@@ -3,6 +3,7 @@ package net.surion.testmod.block;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -18,7 +19,8 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.create()
                     .strength(4f)
                     .requiresTool()
-                    .sounds(BlockSoundGroup.AMETHYST_BLOCK)));
+                    .sounds(BlockSoundGroup.COPPER)
+                    .luminance(state -> 15)));
 
     public static final Block RAW_PINK_GARNET_BLOCK = registerBlock( "raw_pink_garnet_block",
             new Block(AbstractBlock.Settings.create()
