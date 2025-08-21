@@ -13,5 +13,10 @@
   "block.testmod.magic_block": "Magic Block",
 
   "itemgroup.testmod.pink_garnet_items": "Pink Garnet Items",
-  "itemgroup.testmod.pink_garnet_blocks": "Pink Garnet Blocks"
+  "itemgroup.testmod.pink_garnet_blocks": "Pink Garnet Blocks",
+
+  "tooltip.testmod.magic_block.tooltip": "This Block is very very §9Magical§"
+
+
+
 }

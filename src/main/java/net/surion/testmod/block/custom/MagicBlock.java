@@ -53,7 +53,7 @@ public class MagicBlock extends Block {
 
     @Override
     public void appendTooltip(ItemStack stack, Item.TooltipContext context, List<Text> tooltip, TooltipType options) {
-        tooltip.add(Text.translatable("tooltip"));
+        tooltip.add(Text.translatable("tooltip.testmod.magic_block.tooltip"));
         super.appendTooltip(stack, context, tooltip, options);
     }
 }
