@@ -1,8 +1,9 @@
+
 {
   "type": "minecraft:block",
-  "pool": [
+  "pools": [
     {
-      "bonus_roll": 0.0,
+      "bonus_rolls": 0.0,
       "conditions": [
         {
           "condition": "minecraft:survives_explosion"
@@ -11,7 +12,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "testmod:raw_pink_garnet_block"
+          "name": "testmod:pink_garnet_block"
         }
       ],
       "rolls": 1.0

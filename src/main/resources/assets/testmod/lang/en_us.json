@@ -2,8 +2,8 @@
   "item.testmod.pink_garnet": "Pink Garnet",
   "item.testmod.raw_pink_garnet": "Raw Pink Garnet",
   "item.testmod.chisel": "Chisel",
-  "item.testmod.caulifower": "Cauliflower",
-  "item.testmod.caulifower_drink": "Cauliflower Drink",
+  "item.testmod.cauliflower": "Cauliflower",
+  "item.testmod.cauliflower_drink": "Cauliflower Drink",
   "item.testmod.starlight_ashes": "Starlight Ashes",
 
   "block.testmod.pink_garnet_block": "Pink Garnet Block",
@@ -15,7 +15,13 @@
   "itemgroup.testmod.pink_garnet_items": "Pink Garnet Items",
   "itemgroup.testmod.pink_garnet_blocks": "Pink Garnet Blocks",
 
-  "tooltip.testmod.magic_block.tooltip": "This Block is very very §9Magical§"
+  "tooltip.testmod.magic_block.tooltip": "This Block is very §9Magical§r",
+  "tooltip.testmod.magic_block.tooltip.2": "This Block is very very §9Magical§r",
+  "tooltip.testmod.chisel": "A chisel of Pink Garnet",
+  "tooltip.testmod.chisel.2": "Press §eShift§r for more Information",
+  "tooltip.testmod.chisel.shift_down": "This Item give you 4 cobblestone when used on stone",
+  "tooltips.testmod.cauliflower_drink": "You can drink it"
+
 
 
 

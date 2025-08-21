@@ -1,22 +1,33 @@
 package net.surion.testmod.item.custom;
 
-import net.minecraft.block.BlockState;
+import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.tooltip.TooltipType;
+import net.minecraft.text.Text;
+import net.surion.testmod.block.ModBlocks;
+import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
-import net.minecraft.item.Items;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+import java.util.List;
+import java.util.Map;
+
 public class ChiselItem extends Item {
+    private static final Map<Block, Block> CHISEL_MAP =
+            Map.of(
+                    Blocks.STONE, Blocks.STONE_BRICKS,
+                    Blocks.END_STONE, Blocks.END_STONE_BRICKS,
+                    Blocks.OAK_LOG, ModBlocks.PINK_GARNET_BLOCK,
+                    Blocks.GOLD_BLOCK, Blocks.NETHERITE_BLOCK
+            );
 
     public ChiselItem(Settings settings) {
         super(settings);
@@ -25,43 +36,31 @@ public class ChiselItem extends Item {
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
-        PlayerEntity player = context.getPlayer();
+        Block clickedBlock = world.getBlockState(context.getBlockPos()).getBlock();
 
-        // protezione: se non c'è player o siamo client -> PASS
-        if (player == null) {return ActionResult.PASS;}
-        if (world.isClient()) {return ActionResult.PASS;}
+        if(CHISEL_MAP.containsKey(clickedBlock)) {
+            if(!world.isClient()) {
+                world.setBlockState(context.getBlockPos(), CHISEL_MAP.get(clickedBlock).getDefaultState());
 
-        BlockPos pos = context.getBlockPos();
-        BlockState state = world.getBlockState(pos);
-
-        // se il blocco cliccato NON è STONE -> non fare nulla
-        if (!state.isOf(Blocks.STONE)) {return ActionResult.PASS;}
-
-
-        // qui siamo server-side e il blocco è STONE -> esegui la logica
-        ItemStack cobblestoneStack = new ItemStack(Items.COBBLESTONE, 4);
-        boolean inserted = player.getInventory().insertStack(cobblestoneStack);
-        if (!inserted) {
-            player.dropItem(cobblestoneStack, false);
-        }
-
-        // prendi lo stack che il player tiene in mano
-        ItemStack stackInHand = player.getStackInHand(context.getHand());
-
-        // se il player non è in creative danneggialo correttamente
-        if (!player.getAbilities().creativeMode) {
-            if (stackInHand.isDamageable()) {
-                // usa cast a ServerPlayerEntity per la callback di rottura
                 context.getStack().damage(1, ((ServerWorld) world), ((ServerPlayerEntity) context.getPlayer()),
                         item -> context.getPlayer().sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND));
+
+                world.playSound(null, context.getBlockPos(), SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS);
             }
         }
 
-        // feedback visivo e sonoro
-        player.swingHand(context.getHand());
-        world.playSound(null, player.getX(), player.getY(), player.getZ(),
-                SoundEvents.BLOCK_GRINDSTONE_USE, SoundCategory.BLOCKS, 1.0F, 1.0F);
-
         return ActionResult.SUCCESS;
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+        if(Screen.hasShiftDown()){
+            tooltip.add(Text.translatable("tooltip.testmod.chisel.shift_down"));
+        } else {
+            tooltip.add(Text.translatable("tooltip.testmod.chisel"));
+            tooltip.add(Text.translatable("tooltip.testmod.chisel.2"));
+        }
+
+        super.appendTooltip(stack, context, tooltip, type);
     }
 }

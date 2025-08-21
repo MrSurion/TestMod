@@ -26,7 +26,7 @@
                   }
                 }
               ],
-              "name": "tutorialmod:pink_garnet_ore"
+              "name": "testmod:pink_garnet_ore"
             },
             {
               "type": "minecraft:item",
@@ -40,7 +40,7 @@
                   "function": "minecraft:explosion_decay"
                 }
               ],
-              "name": "tutorialmod:raw_pink_garnet"
+              "name": "testmod:raw_pink_garnet"
             }
           ]
         }
