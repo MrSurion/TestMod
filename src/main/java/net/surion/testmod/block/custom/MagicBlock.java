@@ -19,6 +19,7 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.surion.testmod.item.ModItems;
+import net.surion.testmod.util.ModTags;
 
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class MagicBlock extends Block {
     @Override
     public void onSteppedOn(World world, BlockPos pos, BlockState state, Entity entity) {
         if(entity instanceof ItemEntity itemEntity) {
-            if(itemEntity.getStack().getItem()== ModItems.PINK_GARNET){
+            if(isValidItem(itemEntity.getStack())){
                 itemEntity.setStack(new ItemStack(Items.DIAMOND, itemEntity.getStack().getCount()));
                 world.playSound(entity,pos,SoundEvents.BLOCK_AMETHYST_BLOCK_CHIME,SoundCategory.BLOCKS,1f,1f);
             }
@@ -49,6 +50,10 @@ public class MagicBlock extends Block {
 
 
         super.onSteppedOn(world, pos, state, entity);
+    }
+
+    private boolean isValidItem(ItemStack stack) {
+        return stack.isIn(ModTags.Items.TRANSFORMABLE_ITEMS);
     }
 
     @Override
