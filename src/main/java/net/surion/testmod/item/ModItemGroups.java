@@ -22,6 +22,11 @@ public class ModItemGroups {
                         entries.add(ModItems.RAW_PINK_GARNET);
 
                         entries.add(ModItems.CHISEL_ITEM);
+
+                        entries.add(ModItems.CAULIFLOWER);
+                        entries.add(ModItems.CAULIFLOWER_DRINK);
+
+                        entries.add(ModItems.STARLIGHT_ASHES);
                     })
                     .build());
 
