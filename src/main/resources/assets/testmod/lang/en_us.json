@@ -5,7 +5,7 @@
   "item.testmod.cauliflower": "Cauliflower",
   "item.testmod.cauliflower_drink": "Cauliflower Drink",
   "item.testmod.starlight_ashes": "Starlight Ashes",
-  "item.testmod.brush": "Brush",
+  "item.testmod.bell": "Bell",
 
   "block.testmod.pink_garnet_block": "Pink Garnet Block",
   "block.testmod.raw_pink_garnet_block": "Raw Pink Garnet Block",
@@ -23,7 +23,8 @@
   "tooltip.testmod.chisel": "A chisel of Pink Garnet",
   "tooltip.testmod.chisel.2": "Press §eShift§r for more Information",
   "tooltip.testmod.chisel.shift_down": "This Item give you 4 cobblestone when used on stone",
-  "tooltips.testmod.cauliflower_drink": "You can drink it"
+  "tooltips.testmod.cauliflower_drink": "You can drink it",
+  "tooltip.testmod.bell_item": "Used %1$s times"
 
 
 

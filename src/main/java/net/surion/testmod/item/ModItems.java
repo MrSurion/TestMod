@@ -10,6 +10,8 @@ import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import net.surion.testmod.TestMod;
+import net.surion.testmod.component.ModDataComponentTypes;
+import net.surion.testmod.item.custom.BellItem;
 import net.surion.testmod.item.custom.CauliflowerDrinkItem;
 import net.surion.testmod.item.custom.ChiselItem;
 
@@ -33,6 +35,8 @@ public class ModItems {
 
 
     public static final Item STARLIGHT_ASHES =registerItem("starlight_ashes", new Item(new Item.Settings()));
+
+    public static final Item BELL = registerItem("bell", new BellItem(new Item.Settings().component(ModDataComponentTypes.CLICK_COUNT_COMPONENT,0)));
 
 
     private static Item registerItem(String name, Item item){

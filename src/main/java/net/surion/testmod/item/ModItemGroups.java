@@ -28,6 +28,8 @@ public class ModItemGroups {
 
                         entries.add(ModItems.STARLIGHT_ASHES);
 
+                        entries.add(ModItems.BELL);
+
 
                     })
                     .build());
