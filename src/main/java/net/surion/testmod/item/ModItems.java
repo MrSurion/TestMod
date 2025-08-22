@@ -8,9 +8,11 @@ import net.minecraft.item.tooltip.TooltipType;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.surion.testmod.TestMod;
 import net.surion.testmod.component.ModDataComponentTypes;
+import net.surion.testmod.component.MyCustomComponent;
 import net.surion.testmod.item.custom.BellItem;
 import net.surion.testmod.item.custom.CauliflowerDrinkItem;
 import net.surion.testmod.item.custom.ChiselItem;
@@ -19,7 +21,20 @@ import java.util.List;
 
 public class ModItems {
 
-    public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()));
+    public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings().component(ModDataComponentTypes.MY_CUSTOM_COMPONENT, new MyCustomComponent(1f,2f,false))){
+        @Override
+        public void appendTooltip(ItemStack stack, TooltipContext context, List<Text> tooltip, TooltipType type) {
+            if (stack.contains(ModDataComponentTypes.MY_CUSTOM_COMPONENT)){
+                boolean isBroken = stack.get(ModDataComponentTypes.MY_CUSTOM_COMPONENT).broken();
+                float weight = stack.get(ModDataComponentTypes.MY_CUSTOM_COMPONENT).weight();
+                float height = stack.get(ModDataComponentTypes.MY_CUSTOM_COMPONENT).height();
+                tooltip.add(Text.translatable("tooltip.testmod.pink_garnet_isBroken",isBroken).formatted(Formatting.GOLD));
+                tooltip.add(Text.translatable("tooltip.testmod.pink_garnet_weight",weight).formatted(Formatting.GOLD));
+                tooltip.add(Text.translatable("tooltip.testmod.pink_garnet_height",height).formatted(Formatting.GOLD));
+            }
+            super.appendTooltip(stack, context, tooltip, type);
+        }
+    });
     public static final Item RAW_PINK_GARNET= registerItem("raw_pink_garnet", new Item(new Item.Settings()));
 
     public static final Item CHISEL_ITEM = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));

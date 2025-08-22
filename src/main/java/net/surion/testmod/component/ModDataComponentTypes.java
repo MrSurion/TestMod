@@ -14,6 +14,10 @@ public class ModDataComponentTypes {
     public static final ComponentType<Integer> CLICK_COUNT_COMPONENT  =
             register("click_count", builder -> builder.codec(Codec.INT));
 
+    public static final ComponentType<MyCustomComponent> MY_CUSTOM_COMPONENT= register( "custom",
+            builder -> builder.codec(MyCustomComponent.CODEC));
+
+
 
     private static <T>ComponentType<T> register(String name, UnaryOperator<ComponentType.Builder<T>> builderOperator) {
         return Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(TestMod.MOD_ID, name),

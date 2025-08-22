@@ -24,7 +24,10 @@
   "tooltip.testmod.chisel.2": "Press §eShift§r for more Information",
   "tooltip.testmod.chisel.shift_down": "This Item give you 4 cobblestone when used on stone",
   "tooltips.testmod.cauliflower_drink": "You can drink it",
-  "tooltip.testmod.bell_item": "Used %1$s times"
+  "tooltip.testmod.bell_item": "Used %1$s times",
+  "tooltip.testmod.pink_garnet_weight": "The Gem weighs %1$s kg",
+  "tooltip.testmod.pink_garnet_height": "The Gem is %1$s cm high",
+  "tooltip.testmod.pink_garnet_isBroken": "Broken: %1$s"
 
 
 
