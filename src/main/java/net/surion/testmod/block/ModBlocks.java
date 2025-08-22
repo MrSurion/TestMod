@@ -14,7 +14,9 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.surion.testmod.TestMod;
+import net.surion.testmod.block.custom.ColoredBlock;
 import net.surion.testmod.block.custom.MagicBlock;
+import net.surion.testmod.block.custom.PinkGarnetLampBlock;
 
 public class ModBlocks {
 
@@ -47,9 +49,28 @@ public class ModBlocks {
 
     public static final Block MAGIC_BLOCK = registerBlock("magic_block",
             new MagicBlock(AbstractBlock.Settings.create()
-                    .strength(1)
+                    .strength(1f)
                     .requiresTool()
                     .sounds(BlockSoundGroup.HONEY)));
+
+    public static final Block PINK_GARNET_LAMP = registerBlock("pink_garnet_lamp",
+            new PinkGarnetLampBlock((AbstractBlock.Settings.create())
+                    .strength(1f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.LANTERN)
+                    .luminance(state -> state.get(PinkGarnetLampBlock.CLICKED) ? 15 : 0)));
+
+    public static final Block COLORED_BLOCK = registerBlock("colored_block",
+            new ColoredBlock(AbstractBlock.Settings.create()
+                    .strength(1f)
+                    .requiresTool()
+                    .sounds(BlockSoundGroup.MUD)));
+
+    public static final Block LETTER_T = registerBlock("letter_t",
+            new Block(AbstractBlock.Settings.create()
+                    .strength(1f)
+                    .requiresTool()
+                    .nonOpaque()));
 
 
 

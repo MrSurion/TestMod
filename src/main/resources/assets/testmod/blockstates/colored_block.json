@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "color=1": {
+      "model": "testmod:block/colored_block_red"
+    },
+    "color=2": {
+      "model": "testmod:block/colored_block_blue"
+    },
+    "color=3": {
+      "model": "testmod:block/colored_block_yellow"
+    }
+  }
+}

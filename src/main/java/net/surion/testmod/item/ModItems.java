@@ -20,7 +20,7 @@ public class ModItems {
     public static final Item PINK_GARNET = registerItem("pink_garnet", new Item(new Item.Settings()));
     public static final Item RAW_PINK_GARNET= registerItem("raw_pink_garnet", new Item(new Item.Settings()));
 
-    public static final Item CHISEL_ITEM = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)) );
+    public static final Item CHISEL_ITEM = registerItem("chisel", new ChiselItem(new Item.Settings().maxDamage(32)));
 
     public static final Item CAULIFLOWER = registerItem("cauliflower", new Item(new Item.Settings().food(ModFoodComponents.CAULIFLOWER)));
     public static final Item CAULIFLOWER_DRINK = registerItem("cauliflower_drink", new CauliflowerDrinkItem(new Item.Settings().food(ModFoodComponents.CAULIFLOWER)){
@@ -30,6 +30,7 @@ public class ModItems {
             super.appendTooltip(stack, context, tooltip, type);
         }
     });
+
 
     public static final Item STARLIGHT_ASHES =registerItem("starlight_ashes", new Item(new Item.Settings()));
 

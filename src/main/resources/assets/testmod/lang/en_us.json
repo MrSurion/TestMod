@@ -5,12 +5,15 @@
   "item.testmod.cauliflower": "Cauliflower",
   "item.testmod.cauliflower_drink": "Cauliflower Drink",
   "item.testmod.starlight_ashes": "Starlight Ashes",
+  "item.testmod.brush": "Brush",
 
   "block.testmod.pink_garnet_block": "Pink Garnet Block",
   "block.testmod.raw_pink_garnet_block": "Raw Pink Garnet Block",
   "block.testmod.pink_garnet_ore": "Pink Garnet Ore",
   "block.testmod.pink_garnet_deepslate_ore": "Raw Pink Garnet Deepslate Ore",
   "block.testmod.magic_block": "Magic Block",
+  "block.testmod.pink_garnet_lamp": "Pink Garnet Lamp",
+  "block.testmod.colored_block": "Colored Block",
 
   "itemgroup.testmod.pink_garnet_items": "Pink Garnet Items",
   "itemgroup.testmod.pink_garnet_blocks": "Pink Garnet Blocks",

@@ -41,6 +41,16 @@ public class ModRecipeProvider extends FabricRecipeProvider {
                 .criterion("has_stick", RecipeProvider.conditionsFromItem(Items.STICK))
                 .offerTo(recipeExporter);
 
+        ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, ModBlocks.PINK_GARNET_LAMP)
+                .pattern("RRR")
+                .pattern("RSR")
+                .pattern("RRR")
+                .input('R', ModItems.PINK_GARNET)
+                .input('S', Items.GLOWSTONE_DUST)
+                .criterion("has_pink_garnet", RecipeProvider.conditionsFromItem(ModItems.PINK_GARNET))
+                .criterion("has_glowstone_dust", RecipeProvider.conditionsFromItem(Items.GLOWSTONE_DUST))
+                .offerTo(recipeExporter);
+
 
 
     }
